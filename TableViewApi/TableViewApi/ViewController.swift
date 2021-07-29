@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Samsung
 //
-//  Created by Hemant Sharma on 23/07/21.
+//  Created by Aditya on 23/07/21.
 //
 
 import UIKit
