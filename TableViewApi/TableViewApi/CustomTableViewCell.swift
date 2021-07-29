@@ -2,7 +2,7 @@
 //  CustomTableViewCell.swift
 //  Samsung
 //
-//  Created by Hemant Sharma on 23/07/21.
+//  Created by Aditya on 23/07/21.
 //
 
 import UIKit
@@ -47,6 +47,13 @@ class CustomTableViewCell: UITableViewCell {
         let productImage = UIImageView ()
         return productImage
     }()
+    internal lazy var productBookButton: UIButton = {
+            let button = UIButton()
+            button.setTitle("Book", for: .normal)
+            button.backgroundColor = .systemBlue
+            button.setTitleColor(.white, for: .normal)
+            return button
+        }()
 
 
     override func awakeFromNib() {
@@ -82,19 +89,15 @@ class CustomTableViewCell: UITableViewCell {
         productName.anchor(containerView.topAnchor, left: productView.rightAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 5, leftConstant: 10, bottomConstant: 0, rightConstant: 10, widthConstant: 0, heightConstant: 50)
         productName.textAlignment = .left
 
-        
         containerView.addSubview(productPrice)
-     productPrice.anchor(productName.bottomAnchor, left: nil , bottom: nil, right: containerView.rightAnchor, topConstant: 5, leftConstant: 10, bottomConstant: 0, rightConstant: 10, widthConstant: 0, heightConstant: 50)
-        productPrice.textAlignment = .right
-
+        productPrice.anchor(productName.bottomAnchor, left: productView.rightAnchor, bottom: nil, right: nil, topConstant: 8, leftConstant: 8, bottomConstant: 0, rightConstant: 8, widthConstant: 140, heightConstant: 0)
         
         containerView.addSubview(productOfferPrice)
-        productOfferPrice.anchor(productPrice.bottomAnchor, left: nil , bottom: nil, right: containerView.rightAnchor, topConstant: 5, leftConstant: 10, bottomConstant: 0, rightConstant: 10, widthConstant: 0, heightConstant: 50)
-        productOfferPrice.textAlignment = .center
-        
-       
+        productOfferPrice.anchor(productPrice.bottomAnchor, left: productView.rightAnchor, bottom: nil, right: nil, topConstant: 8, leftConstant: 8, bottomConstant: 0, rightConstant: 8, widthConstant: 140, heightConstant: 0)
+                
+        containerView.addSubview(productBookButton)
+                productBookButton.anchor(nil, left: nil, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 8, rightConstant: 16, widthConstant: 80, heightConstant: 40)
     }
-    
     
     func configure(name: String, priceDisplay: String, offerPriceDisplay: String, imageURL: String) {
         productName.text = name
